@@ -1,0 +1,21 @@
+{
+  "name": "project-list",
+  "version": "1.0.0",
+  "description": "a simple project list view by file system in direcotry",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "studio",
+    "project",
+    "view",
+    "list"
+  ],
+  "author": {
+		"name" : "Weijing Jay Lin", 
+		"email": "weijingjaylin@gmail.com", 
+		"url": "http://www.weijinglin.name"
+	}
+	"license": "MIT"
+}
