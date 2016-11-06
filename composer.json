@@ -1,10 +1,11 @@
 {
-		"name": "dotku/php-project-lister",
+    "name": "dotku/php-project-lister",
     "description": "A project lister view by reading the directories.",
-		"config": {
+    "config": {
         "vendor-dir": "../vendor"
     },
     "require": {
         "crysalead/dir": "^2.0"
-    }
+    },
+    "license" : "MIT"
 }
