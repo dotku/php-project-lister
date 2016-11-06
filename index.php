@@ -17,6 +17,7 @@
 		<script src="/lib/jquery/dist/jquery.min.js"></script>
 		<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 		<style>
+			a:hover {text-decoration: none}
 			.container {max-width: 800px;}
 		</style>
 	</head>
@@ -35,10 +36,12 @@
 			<?php if (is_array($dirs) && !empty($dirs)) { ?>
 				<div class="list-group">
 					<?php foreach($dirs as $key => $val) { ?>
-						<a href="<?php echo $val; ?>" class="list-group-item">
-							<h4 class="list-group-item-heading"><?php echo pathinfo($val)['basename']; ?></h4>
+						<div class="list-group-item">
+							<a href="<?php echo $val; ?>">
+								<h4 class="list-group-item-heading" style="display:inline"><?php echo pathinfo($val)['basename']; ?></h4>
+							</a>
 							<p class="list-group-item-text"></p>
-						</a>
+						</div>
 					<?php } ?>
 				</div>
 			<?php } ?>
@@ -46,12 +49,12 @@
 		</div>
 		<script>
 			var projectList = [
-				{'name': 'lib', 'description': '前端代码库'},
-				{'name': 'kiwich', 'description': '基于地理位置的社交网址'},
-				{'name': 'fnmili', 'description': '全球直邮代购商城'},
-				{'name': 'tencentyun', 'description': '基于腾讯云的项目'},
-				{'name': 'lab', 'description': '研究中的项目'},
-        {'name': 'referral', 'description': '用于放置优惠券，推广码'}
+			//	{'name': 'lib', 'description': '前端代码库'},
+			//	{'name': 'kiwich', 'description': '基于地理位置的社交网址'},
+			//	{'name': 'fnmili', 'description': '全球直邮代购商城'},
+			//	{'name': 'tencentyun', 'description': '基于腾讯云的项目'},
+			//	{'name': 'lab', 'description': '研究中的项目'},
+      //  {'name': 'referral', 'description': '用于放置优惠券，推广码'}
 			];
 			$('.list-group-item').each(function(i, o){
 				for(var i = 0; i < projectList.length; i++) {
@@ -59,9 +62,21 @@
 						// console.log(projectList[i].name, $(o).find('.list-group-item-heading').html());
 						$(o).find('.list-group-item-text').html(projectList[i].description);
 					} else {
-						// console.log(projectList[i].name, $(o).find('.list-group-item-heading').html());
+						// do exceptions
 					}
 				}
+
+				// get description by composer.json
+				var projectName = $(o).find('.list-group-item-heading').html();
+        var sHTML = '';
+				$.getJSON('/projects/'+ projectName + '/composer.json')
+						.success( function(rsp){
+            	console.log(rsp);
+							sHTML = rsp.description_cn || rsp.description;
+							if (sHTML) {
+          			$(o).find('.list-group-item-text').html(sHTML);
+        			}
+        		});
 			})
 		</script>
 	</body>
