@@ -1,4 +1,5 @@
-#PHP Project Lister
+# PHP Project Lister
+
 A project lister view by reading the directories.
 
 ## Sample Folder Structure
@@ -10,12 +11,14 @@ A project lister view by reading the directories.
 /var/www/projects # your project location
 ```
 \*\* if you want to make your project accessabile,
-you can simple create a symlink to the html folder, such as
-`ln -s /var/www/project/projectA /var/www/html/projectA`.
+you can simple create a symlink to the html folder
+
+`ln -s /var/www/projects /var/www/html/projects`
 
 In windows system, please refer to `mklink` command.
 
 ## Usage
+
 1. Run `composer install` in
 2. Create your poject under /var/www/projects
-3. Enjoy the project viewer 
+3. Enjoy the php project lister :)
