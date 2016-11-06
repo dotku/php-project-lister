@@ -1,4 +1,6 @@
 {
+		"name": "dotku/php-project-lister",
+    "description": "A project lister view by reading the directories.",
 		"config": {
         "vendor-dir": "../vendor"
     },

@@ -42,7 +42,7 @@
 					<?php } ?>
 				</div>
 			<?php } ?>
-			<div class="alert alert-info" role="alert">Powered by <a href="https://github.com/dotku/php-project-lister">PHP Project Lister</a></div>
+			<div class="alert alert-info text-center" role="alert">Powered by <a href="https://github.com/dotku/php-project-lister">PHP Project Lister v0.0.1</a></div>
 		</div>
 		<script>
 			var projectList = [
